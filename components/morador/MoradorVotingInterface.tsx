@@ -63,29 +63,22 @@ const MoradorVotingInterface = () => {
   const [votoSelecionado, setVotoSelecionado] = useState({});
 
   // Calcular tempo restante
-  const calcularTempoRestante = (dataFim: string) => {
-    const agora = new Date();
-    const fim = new Date(dataFim);
-    const diff = fim.getTime() - agora.getTime();
-
-    if (diff <= 0) return 'Encerrada';
-
-    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-    if (dias > 0) return `${dias}d ${horas}h restantes`;
-    if (horas > 0) return `${horas}h ${minutos}min restantes`;
-    return `${minutos} minutos restantes`;
-  };
+  const estaProximoDoFim = (dataFim: string | Date) => {
+  const agora = new Date();
+  const fim = new Date(dataFim);
+  const diff = fim.getTime() - agora.getTime();
+  return diff <= 24 * 60 * 60 * 1000; // 24 horas em milissegundos
+};
 
   // Verificar se está próximo do fim (últimas 24h)
-  const estaProximoDoFim = (dataFim) => {
-    const agora = new Date();
-    const fim = new Date(dataFim);
-    const diff = fim.getTime() - agora.getTime();
-    return diff > 0 && diff <= 24 * 60 * 60 * 1000;
-  };
+  const estaProximoDoFim = (dataFim: string | Date): boolean => {
+  const agora = new Date();
+  const fim = new Date(dataFim);
+  const diff = fim.getTime() - agora.getTime();
+  const vinteQuatroHoras = 24 * 60 * 60 * 1000; // 24h em milissegundos
+  
+  return diff <= vinteQuatroHoras && diff > 0;
+};
 
   // Registrar voto
   const registrarVoto = (votacaoId, opcaoId) => {
