@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { Search, Plus, Building2, Users, FileText, Clock, DollarSign, CheckCircle, XCircle, AlertCircle, Edit, Eye, MoreVertical, Calendar, TrendingUp, Activity } from 'lucide-react';
 
@@ -107,7 +108,7 @@ const SuperAdminPanel = () => {
     inadimplentes: condominios.filter(c => c.statusPagamento === 'inadimplente').length
   };
 
-  const getStatusPagamentoBadge = (status) => {
+  const getStatusPagamentoBadge = (status: string) => {
     const badges = {
       pago: { texto: 'Pago', cor: 'bg-green-100 text-green-700', icon: CheckCircle },
       pendente: { texto: 'Pendente', cor: 'bg-amber-100 text-amber-700', icon: Clock },
