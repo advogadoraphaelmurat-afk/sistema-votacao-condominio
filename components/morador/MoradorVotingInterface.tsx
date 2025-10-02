@@ -1,3 +1,9 @@
+'use client';
+import React, { useState } from 'react';
+import { Clock, CheckCircle, AlertCircle, FileText, ChevronDown, ChevronUp } from 'lucide-react';
+
+const MoradorVotingInterface = () => {
+  // ... o resto do seu código permanece IGUAL
 import React, { useState } from 'react';
 import { Clock, CheckCircle, AlertCircle, FileText, ChevronDown, ChevronUp } from 'lucide-react';
 
