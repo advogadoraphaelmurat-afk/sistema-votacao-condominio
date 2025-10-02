@@ -19,7 +19,7 @@ const SuperAdminPanel = () => {
   const [busca, setBusca] = useState('');
   const [filtroStatus, setFiltroStatus] = useState('todos');
   const [filtroPlano, setFiltroPlano] = useState('todos');
-  const [showModal, setShowModal] = useState(null);
+  const [showModal, setShowModal] = useState<string | null>(null);
   const [condominioSelecionado, setCondominioSelecionado] = useState(null);
 
   // Dados mockados
