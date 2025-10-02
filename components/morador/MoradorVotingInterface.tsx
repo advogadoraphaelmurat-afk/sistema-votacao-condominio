@@ -63,7 +63,7 @@ const MoradorVotingInterface = () => {
   const [votoSelecionado, setVotoSelecionado] = useState({});
 
   // Calcular tempo restante
-  const calcularTempoRestante = (dataFim) => {
+  const calcularTempoRestante = (dataFim: string) => {
     const agora = new Date();
     const fim = new Date(dataFim);
     const diff = fim - agora;
