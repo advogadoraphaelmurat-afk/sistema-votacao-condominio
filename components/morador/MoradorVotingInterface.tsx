@@ -66,7 +66,7 @@ const MoradorVotingInterface = () => {
   const calcularTempoRestante = (dataFim: string) => {
     const agora = new Date();
     const fim = new Date(dataFim);
-    const diff = fim - agora;
+    const diff = fim.getTime() - agora.getTime();
 
     if (diff <= 0) return 'Encerrada';
 
@@ -83,7 +83,7 @@ const MoradorVotingInterface = () => {
   const estaProximoDoFim = (dataFim) => {
     const agora = new Date();
     const fim = new Date(dataFim);
-    const diff = fim - agora;
+    const diff = fim.getTime() - agora.getTime();
     return diff > 0 && diff <= 24 * 60 * 60 * 1000;
   };
 
