@@ -1,6 +1,18 @@
 'use client';
 import React, { useState } from 'react';
-import { Search, Plus, Building2, Users, FileText, Clock, DollarSign, CheckCircle, XCircle, AlertCircle, Edit, Eye, MoreVertical, Calendar, TrendingUp, Activity, Archive } from 'lucide-react';
+import { 
+  Building, 
+  Users, 
+  CreditCard, 
+  TrendingUp, 
+  AlertTriangle, 
+  CheckCircle, 
+  MoreVertical, 
+  Eye, 
+  Edit, 
+  Archive,
+  XCircle 
+} from 'lucide-react';
 
 const SuperAdminPanel = () => {
   const [abaSelecionada, setAbaSelecionada] = useState('condominios');
