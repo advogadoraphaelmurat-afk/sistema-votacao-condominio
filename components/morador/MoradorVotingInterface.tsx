@@ -63,14 +63,7 @@ const MoradorVotingInterface = () => {
   const [votoSelecionado, setVotoSelecionado] = useState({});
 
   // Calcular tempo restante
-  const estaProximoDoFim = (dataFim: string | Date) => {
-  const agora = new Date();
-  const fim = new Date(dataFim);
-  const diff = fim.getTime() - agora.getTime();
-  return diff <= 24 * 60 * 60 * 1000; // 24 horas em milissegundos
-};
-
-  // Verificar se está próximo do fim (últimas 24h)
+   // Verificar se está próximo do fim (últimas 24h)
   const estaProximoDoFim = (dataFim: string | Date): boolean => {
   const agora = new Date();
   const fim = new Date(dataFim);
