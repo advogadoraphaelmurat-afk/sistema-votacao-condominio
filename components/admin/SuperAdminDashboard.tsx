@@ -152,8 +152,8 @@ const SuperAdminPanel = () => {
     return matchBusca && matchStatus && matchPlano;
   });
 
-  interface MetricCardProps {
-  icon: React.ComponentType<{ className?: string; size?: number }>;
+interface MetricCardProps {
+  icon: any;
   titulo: string;
   valor: string | number;
   subtitulo?: string;
