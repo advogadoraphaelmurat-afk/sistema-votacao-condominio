@@ -265,7 +265,7 @@ const MetricCard = ({ icon: Icon, titulo, valor, subtitulo, cor }: MetricCardPro
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
           <MetricCard
-            icon={Building2}
+            icon={Building}
             titulo="Total de Condomínios"
             valor={metricas.totalCondominios}
             subtitulo={`${metricas.condominiosAtivos} ativos`}
@@ -448,7 +448,7 @@ const MetricCard = ({ icon: Icon, titulo, valor, subtitulo, cor }: MetricCardPro
 
                 {condominiosFiltrados.length === 0 && (
                   <div className="text-center py-12">
-                    <Building2 className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                    <Building className="w-16 h-16 text-gray-300 mx-auto mb-4" />
                     <p className="text-gray-600 font-medium">Nenhum condomínio encontrado</p>
                     <p className="text-gray-500 text-sm">Tente ajustar os filtros</p>
                   </div>
