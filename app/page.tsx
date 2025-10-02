@@ -13,17 +13,14 @@ export default function Home() {
         </p>
         <div className="space-y-3">
           <button className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-            Entrar como Síndico
-          </button>
-          <button className="w-full px-4 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors">
-            Entrar como Morador
+            Acessar Sistema
           </button>
           <button className="w-full px-4 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
-            Administração
+            Saiba Mais
           </button>
         </div>
         <p className="text-sm text-gray-500 mt-6">
-          🚀 Sistema pronto para uso
+          🚀 Sistema implantado com sucesso
         </p>
       </div>
     </div>
