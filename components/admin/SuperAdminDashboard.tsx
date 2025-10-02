@@ -164,20 +164,28 @@ const SuperAdminPanel = () => {
     return matchBusca && matchStatus && matchPlano;
   });
 
-  const MetricCard = ({ icon: Icon, titulo, valor, subtitulo, cor }) => (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-      <div className="flex items-start justify-between">
-        <div className="flex-1">
-          <p className="text-gray-600 text-sm font-medium mb-1">{titulo}</p>
-          <p className={`text-3xl font-bold ${cor} mb-1`}>{valor}</p>
-          {subtitulo && <p className="text-gray-500 text-sm">{subtitulo}</p>}
-        </div>
-        <div className={`${cor.replace('text', 'bg').replace('600', '100')} p-3 rounded-lg`}>
-          <Icon className={cor} size={24} />
-        </div>
+  interface MetricCardProps {
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+  titulo: string;
+  valor: string | number;
+  subtitulo?: string;
+  cor: string;
+}
+
+const MetricCard = ({ icon: Icon, titulo, valor, subtitulo, cor }: MetricCardProps) => (
+  <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between">
+      <div className="flex-1">
+        <p className="text-gray-600 text-sm font-medium mb-1">{titulo}</p>
+        <p className={`text-3xl font-bold ${cor} mb-1`}>{valor}</p>
+        {subtitulo && <p className="text-gray-500 text-sm">{subtitulo}</p>}
+      </div>
+      <div className={`${cor.replace('text', 'bg').replace('600', '100')} p-3 rounded-lg`}>
+        <Icon className={cor} size={24} />
       </div>
     </div>
-  );
+  </div>
+);
 
   const ModalNovoCondominio = () => (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
