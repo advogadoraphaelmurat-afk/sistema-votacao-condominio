@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Search, Plus, Building2, Users, FileText, Clock, DollarSign, CheckCircle, XCircle, AlertCircle, Edit, Eye, MoreVertical, Calendar, TrendingUp, Activity } from 'lucide-react';
+import { Search, Plus, Building2, Users, FileText, Clock, DollarSign, CheckCircle, XCircle, AlertCircle, Edit, Eye, MoreVertical, Calendar, TrendingUp, Activity, Archive } from 'lucide-react';
 
 const SuperAdminPanel = () => {
   const [abaSelecionada, setAbaSelecionada] = useState('condominios');
@@ -108,21 +108,35 @@ const SuperAdminPanel = () => {
     inadimplentes: condominios.filter(c => c.statusPagamento === 'inadimplente').length
   };
 
-  const getStatusPagamentoBadge = (status: string) => {
-    const badges = {
-      pago: { texto: 'Pago', cor: 'bg-green-100 text-green-700', icon: CheckCircle },
-      pendente: { texto: 'Pendente', cor: 'bg-amber-100 text-amber-700', icon: Clock },
-      inadimplente: { texto: 'Inadimplente', cor: 'bg-red-100 text-red-700', icon: XCircle }
-    };
-    const badge = badges[status];
-    const Icon = badge.icon;
-    return (
-      <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold ${badge.cor}`}>
-        <Icon size={14} />
-        {badge.texto}
-      </span>
-    );
+  const getStatusPagamentoBadge = (status: 'pago' | 'pendente' | 'inadimplente') => {
+  const badges = {
+    pago: { 
+      texto: 'Em dia', 
+      cor: 'bg-green-100 text-green-700', 
+      icon: CheckCircle 
+    },
+    pendente: { 
+      texto: 'Pagamento Pendente', 
+      cor: 'bg-amber-100 text-amber-700', 
+      icon: AlertTriangle 
+    },
+    inadimplente: { 
+      texto: 'Inadimplente', 
+      cor: 'bg-red-100 text-red-700', 
+      icon: XCircle 
+    }
   };
+  
+  const badge = badges[status];
+  const Icon = badge.icon;
+  
+  return (
+    <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold ${badge.cor}`}>
+      <Icon size={14} />
+      {badge.texto}
+    </span>
+  );
+};
 
   const condominiosFiltrados = condominios.filter(c => {
     const matchBusca = c.nome.toLowerCase().includes(busca.toLowerCase()) ||
